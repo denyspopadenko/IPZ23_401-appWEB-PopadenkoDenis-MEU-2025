@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Про нас — AsiaBox</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body class="bg-beige-light flex flex-col min-h-screen">
+  <!-- HEADER -->
+  <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+    <!-- LOGO -->
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="/img/logo.png" alt="AsiaBox" class="h-10">
+      <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
+    </a>
+
+    <!-- NAV MENU (Desktop) -->
+    <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
+      <a href="catalog.html" class="hover:text-brand-red">Каталог</a>
+      <a href="promotions.html" class="hover:text-brand-red">Акції</a>
+      <a href="about.html" class="text-brand-red">Про нас</a>
+      <a href="delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
+      <a href="contacts.html" class="hover:text-brand-red">Контакти</a>
+    </nav>
+
+    <!-- AUTH + CART -->
+    <div class="flex items-center space-x-4">
+  <a href="login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover-bg-brand-pink-dark transition">Увійти</a>
+  <a href="cart.html" class="relative">
+    <img src="/img/cart.png" alt="Cart" class="h-6">
+    <span id="cart-counter" class="absolute -top-2 -right-2 bg-brand-red text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
+  </a>
+</div>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="mobileMenuBtn" class="md:hidden text-2xl" aria-label="Відкрити меню">☰</button>
+  </header>
+
+  <!-- БІЧНЕ МОБІЛЬНЕ МЕНЮ -->
+  <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+
+  <nav id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col py-6 px-4">
+    <button id="mobileMenuClose" class="self-end text-2xl mb-4" aria-label="Закрити меню">✖</button>
+
+    <a href="catalog.html" class="block py-2 text-brand-red font-semibold">Каталог</a>
+    <a href="promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
+    <a href="about.html" class="block py-2 hover:text-brand-red">Про нас</a>
+    <a href="delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
+    <a href="contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
+    <a href="cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
+    <a href="login.html" class="block py-2 font-semibold text-brand-pink">Увійти</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="flex-grow px-6 py-10">
+    <h2 class="text-3xl font-bold text-brand-red mb-6 text-center">Про компанію AsiaBox</h2>
+    <div class="max-w-3xl mx-auto text-gray-700 space-y-6 bg-white p-6 rounded-2xl shadow">
+      <p>
+        Ми — команда ентузіастів, які закохані в азійську кухню. Наш шлях почався у 2021 році з маленького складу в Києві, 
+        де ми вручну пакували перші замовлення. Сьогодні AsiaBox — це десятки партнерів і сотні клієнтів по всій Україні.
+      </p>
+      <p>
+        Ми доставляємо найкращі продукти з Японії, Кореї, Китаю та Таїланду — від популярних снеки до рідкісних соусів та напоїв.
+        Усе — лише оригінальне, сертифіковане й відібране нами особисто.
+      </p>
+      <p>
+        Наша місія — зробити азійську культуру ближчою до кожного українця ❤️
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white text-center py-6 border-t mt-10">
+    <div class="flex flex-col sm:flex-row justify-center sm:space-x-6 mb-4 text-gray-700 font-medium">
+      <a href="about.html" class="text-brand-red">Про нас</a>
+      <a href="delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
+      <a href="contacts.html" class="hover:text-brand-red">Контакти</a>
+    </div>
+    <p class="text-gray-500 text-sm">&copy; 2025 AsiaBox. Усі права захищені.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("mobileMenuBtn");
+      const closeBtn = document.getElementById("mobileMenuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const overlay = document.getElementById("mobileMenuOverlay");
+
+      function openMenu() {
+        mobileMenu.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      }
+
+      if (menuBtn) menuBtn.addEventListener("click", openMenu);
+      if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+      if (overlay) overlay.addEventListener("click", closeMenu);
+    });
+  </script>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доставка і оплата — AsiaBox</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-beige-light flex flex-col min-h-screen">
+  <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="/img/logo.png" alt="AsiaBox" class="h-10">
+      <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
+    </a>
+    <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
+      <a href="catalog.html" class="hover:text-brand-red">Каталог</a>
+      <a href="promotions.html" class="hover:text-brand-red">Акції</a>
+      <a href="about.html" class="hover:text-brand-red">Про нас</a>
+      <a href="delivery.html" class="text-brand-red">Доставка і оплата</a>
+      <a href="contacts.html" class="hover:text-brand-red">Контакти</a>
+    </nav>
+    <!-- AUTH + CART -->
+    <div class="flex items-center space-x-4">
+  <a href="login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover-bg-brand-pink-dark transition">Увійти</a>
+  <a href="cart.html" class="relative">
+    <img src="/img/cart.png" alt="Cart" class="h-6">
+    <span id="cart-counter" class="absolute -top-2 -right-2 bg-brand-red text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
+  </a>
+</div>
+ <button id="mobileMenuBtn" class="md:hidden text-2xl">☰</button>
+</header>
+
+<!-- БІЧНЕ МОБІЛЬНЕ МЕНЮ -->
+  <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+
+  <nav id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col py-6 px-4">
+    <button id="mobileMenuClose" class="self-end text-2xl mb-4" aria-label="Закрити меню">✖</button>
+
+    <a href="catalog.html" class="block py-2 text-brand-red font-semibold">Каталог</a>
+    <a href="promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
+    <a href="about.html" class="block py-2 hover:text-brand-red">Про нас</a>
+    <a href="delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
+    <a href="contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
+    <a href="cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
+    <a href="login.html" class="block py-2 font-semibold text-brand-pink">Увійти</a>
+  </nav>
+
+  <main class="flex-grow px-6 py-10">
+    <h2 class="text-3xl font-bold text-brand-red mb-6 text-center">Доставка та оплата</h2>
+    <div class="max-w-3xl mx-auto space-y-8 text-gray-700">
+      <section>
+        <h3 class="text-xl font-semibold mb-2 text-brand-red">🚛 Доставка</h3>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Нова пошта — по всій Україні (1–3 дні).</li>
+          <li>Кур’єром по Києву — того ж дня (при замовленні до 14:00).</li>
+          <li>Самовивіз з нашого складу — вул. Хрещатик, 21.</li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="text-xl font-semibold mb-2 text-brand-red">💳 Оплата</h3>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Онлайн-оплата карткою Visa / MasterCard.</li>
+          <li>Готівкою або карткою при отриманні.</li>
+          <li>Переказом на рахунок (для юр. осіб).</li>
+        </ul>
+      </section>
+      <p class="text-gray-600 italic">Мінімальна сума замовлення — 200 ₴.</p>
+    </div>
+  </main>
+
+  <footer class="bg-white text-center py-6 border-t mt-10">
+    <p class="text-gray-500 text-sm">&copy; 2025 AsiaBox. Усі права захищені.</p>
+  </footer>
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("mobileMenuBtn");
+      const closeBtn = document.getElementById("mobileMenuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const overlay = document.getElementById("mobileMenuOverlay");
+
+      function openMenu() {
+        mobileMenu.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      }
+
+      if (menuBtn) menuBtn.addEventListener("click", openMenu);
+      if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+      if (overlay) overlay.addEventListener("click", closeMenu);
+    });
+  </script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

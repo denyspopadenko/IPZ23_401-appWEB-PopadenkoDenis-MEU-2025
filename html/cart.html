@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кошик — AsiaBox</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-beige-light flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="/img/logo.png" alt="AsiaBox" class="h-10">
+      <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
+    </a>
+
+    <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
+      <a href="catalog.html" class="hover:text-brand-red">Каталог</a>
+      <a href="promotions.html" class="hover:text-brand-red">Акції</a>
+      <a href="about.html" class="hover:text-brand-red">Про нас</a>
+      <a href="delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
+      <a href="contacts.html" class="hover:text-brand-red">Контакти</a>
+    </nav>
+
+    <!-- AUTH + CART -->
+    <div class="flex items-center space-x-4">
+      <a href="login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>
+      <a href="cart.html" class="relative">
+        <img src="/img/cart.png" alt="Cart" class="h-6">
+        <span id="cart-counter" class="absolute -top-2 -right-2 bg-brand-red text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
+      </a>
+    </div>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="mobileMenuBtn" class="md:hidden text-2xl" aria-label="Відкрити меню">☰</button>
+  </header>
+
+  <!-- Mobile overlay + menu (same as other pages) -->
+  <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+
+  <nav id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col py-6 px-4">
+    <button id="mobileMenuClose" class="self-end text-2xl mb-4" aria-label="Закрити меню">✖</button>
+
+    <a href="catalog.html" class="block py-2 text-brand-red font-semibold">Каталог</a>
+    <a href="promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
+    <a href="about.html" class="block py-2 hover:text-brand-red">Про нас</a>
+    <a href="delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
+    <a href="contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
+    <a href="cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
+    <a href="login.html" class="block py-2 font-semibold text-brand-pink">Увійти</a>
+  </nav>
+
+  <!-- Main -->
+  <main class="flex-grow px-6 py-10">
+    <h2 class="text-3xl font-bold text-brand-red mb-6 text-center">Ваш кошик 🛍️</h2>
+
+    <div id="cartContainer" class="bg-white shadow-md rounded-xl p-6">
+      <div id="cartItems" class="space-y-4">
+        <!-- тут JS рендерить рядки з товарами (з кнопками +, -, ✖) -->
+      </div>
+
+      <p id="emptyCart" class="text-center text-gray-500 hidden">Кошик порожній 😔</p>
+
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between mt-6 border-t pt-4 gap-4">
+        <div>
+          <button id="clearCart" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">
+            Очистити кошик
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between md:justify-end gap-6">
+          <div class="text-right">
+            <h3 class="text-lg font-medium text-gray-700">Загальна сума</h3>
+            <p id="cartTotal" class="text-2xl font-bold text-brand-red">0 ₴</p>
+          </div>
+
+          <!-- Кнопка оформлення замовлення -->
+          <div>
+            <button id="checkoutBtn" class="bg-brand-pink text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-pink-dark">
+              Оформити замовлення
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center py-6 border-t mt-10">
+    <p class="text-gray-500 text-sm">&copy; 2025 AsiaBox. Усі права захищені.</p>
+  </footer>
+
+  <!-- inline mobile menu script (keeps pages independent) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("mobileMenuBtn");
+      const closeBtn = document.getElementById("mobileMenuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const overlay = document.getElementById("mobileMenuOverlay");
+
+      function openMenu() {
+        mobileMenu.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      }
+
+      menuBtn?.addEventListener("click", openMenu);
+      closeBtn?.addEventListener("click", closeMenu);
+      overlay?.addEventListener("click", closeMenu);
+    });
+  </script>
+
+  <!-- main cart logic -->
+  <script src="/js/cart.js"></script>
+</body>
+</html>

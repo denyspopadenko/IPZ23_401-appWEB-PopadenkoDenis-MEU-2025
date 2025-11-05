@@ -1,0 +1,52 @@
+/* Застосування кастомних шрифтів */
+body { 
+    font-family: 'Open Sans', sans-serif; 
+    background-color: #FFFBF7; /* Світло-бежевий фон */
+}
+h1, h2, h3, h4, h5, h6 { 
+    font-family: 'Nunito', sans-serif; 
+    font-weight: 700; 
+}
+/* Кастомні кольори (для фону) */
+.bg-beige-light {
+    background-color: #FFFBF7; /* Світло-бежевий */
+}
+.bg-brand-red {
+    background-color: #E53E3E; /* Насичений червоний */
+}
+.text-brand-red {
+    color: #E53E3E;
+}
+.bg-brand-orange {
+    background-color: #ED8936; /* Глибокий помаранчевий */
+}
+.bg-brand-pink {
+    background-color: #EC4899; /* Яскравий рожевий (акцент) */
+}
+.hover-bg-brand-pink-dark:hover {
+    background-color: #D94682;
+}
+
+/* Приховування сторінок */
+.page {
+    display: none;
+}
+.page.active {
+    display: block;
+}
+
+/* Простий слайдер */
+.slider-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* для iOS */
+    scrollbar-width: none; /* Firefox */
+}
+.slider-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+.slider-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}

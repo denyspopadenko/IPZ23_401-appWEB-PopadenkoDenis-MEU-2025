@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AsiaBox — Оформлення замовлення</title>
+  
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+</head>
+<body class="bg-beige-light flex flex-col min-h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="/img/logo.png" alt="AsiaBox" class="h-10">
+      <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
+    </a>
+
+    <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
+      <a href="catalog.html" class="hover:text-brand-red transition">Каталог</a>
+      <a href="promotions.html" class="hover:text-brand-red transition">Акції</a>
+      <a href="about.html" class="hover:text-brand-red transition">Про нас</a>
+      <a href="delivery.html" class="hover:text-brand-red transition">Доставка і оплата</a>
+      <a href="contacts.html" class="hover:text-brand-red transition">Контакти</a>
+    </nav>
+
+    <div class="flex items-center space-x-4">
+      <a href="cart.html" class="relative">
+        <img src="/img/cart.png" alt="Cart" class="h-6">
+        <span id="cart-counter" class="absolute -top-2 -right-2 bg-brand-red text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
+      </a>
+      <div id="accountArea"></div>
+    </div>
+
+    <button id="mobileMenuBtn" class="md:hidden text-2xl" aria-label="Відкрити меню">☰</button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+  <nav id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col py-6 px-4">
+    <button id="mobileMenuClose" class="self-end text-2xl mb-4" aria-label="Закрити меню">✖</button>
+    <a href="catalog.html" class="block py-2 text-brand-red font-semibold">Каталог</a>
+    <a href="promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
+    <a href="about.html" class="block py-2 hover:text-brand-red">Про нас</a>
+    <a href="delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
+    <a href="contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
+    <a href="cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
+    <a href="login.html" class="block py-2 font-semibold text-brand-pink">Увійти</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="flex-grow px-6 py-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      <!-- LEFT: FORM -->
+      <section class="bg-white p-8 rounded-2xl shadow-md">
+        <h2 class="text-3xl font-bold text-brand-red mb-6 text-center">Оформлення замовлення</h2>
+
+        <form id="checkoutForm" class="space-y-6">
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Ім'я</label>
+            <input type="text" placeholder="Ваше ім'я" class="w-full p-3 border border-gray-300 rounded-lg" required>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Email</label>
+            <input type="email" placeholder="example@email.com" class="w-full p-3 border border-gray-300 rounded-lg" required>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Телефон</label>
+            <input type="tel" placeholder="+380XXXXXXXXX" class="w-full p-3 border border-gray-300 rounded-lg" required>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Адреса доставки</label>
+            <input type="text" placeholder="Країна" class="w-full p-3 border border-gray-300 rounded-lg mb-3" required>
+            <input type="text" placeholder="Місто" class="w-full p-3 border border-gray-300 rounded-lg mb-3" required>
+            <input type="text" placeholder="Вулиця, будинок, квартира" class="w-full p-3 border border-gray-300 rounded-lg" required>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Спосіб оплати</label>
+            <select class="w-full p-3 border border-gray-300 rounded-lg" required>
+              <option value="">Виберіть спосіб оплати</option>
+              <option value="card">Картка</option>
+              <option value="cash">Готівка при доставці</option>
+              <option value="paypal">PayPal</option>
+            </select>
+          </div>
+
+          <button type="submit" class="w-full bg-brand-pink text-white p-4 rounded-lg font-semibold hover:bg-brand-pink-dark transition">
+            Підтвердити замовлення
+          </button>
+        </form>
+      </section>
+
+      <!-- RIGHT: CART ITEMS -->
+      <aside class="bg-white p-6 rounded-2xl shadow-md">
+        <h3 class="text-2xl font-bold text-brand-red mb-4 text-center">Ваші товари</h3>
+        <div id="checkout-items" class="space-y-4"></div>
+        <div class="bg-beige-light p-4 rounded-lg mt-6">
+          <p class="font-semibold text-gray-700">Кількість товарів: <span id="total-items">0</span></p>
+          <p class="font-semibold text-gray-700">Загальна сума: <span id="total-price">0 грн</span></p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white text-center py-6 border-t mt-10">
+    <div class="flex flex-col sm:flex-row justify-center sm:space-x-6 mb-4 text-gray-700 font-medium">
+      <a href="about.html" class="hover:text-brand-red">Про нас</a>
+      <a href="delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
+      <a href="contacts.html" class="hover:text-brand-red">Контакти</a>
+    </div>
+    <p class="text-gray-500 text-sm">&copy; 2025 AsiaBox. Усі права захищені.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Мобільне меню
+    const menuBtn = document.getElementById("mobileMenuBtn");
+    const closeBtn = document.getElementById("mobileMenuClose");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("mobileMenuOverlay");
+
+    function openMenu() { mobileMenu.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); }
+    function closeMenu() { mobileMenu.classList.add("-translate-x-full"); overlay.classList.add("hidden"); }
+
+    menuBtn?.addEventListener("click", openMenu);
+    closeBtn?.addEventListener("click", closeMenu);
+    overlay?.addEventListener("click", closeMenu);
+
+    // Динамічний акаунт користувача
+    const accountArea = document.getElementById("accountArea");
+    const currentUserEmail = localStorage.getItem("currentUser");
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(u => u.email === currentUserEmail);
+
+    if(accountArea) {
+      if(user) {
+        accountArea.innerHTML = `
+          <div id="userMenu" class="relative flex items-center space-x-2 cursor-pointer">
+            <img id="userAvatar" src="${user.avatar || '/img/default-avatar.png'}" class="h-10 w-10 rounded-full shadow-md">
+            <span id="userName" class="font-semibold">${user.name}</span>
+            <div id="userDropdown" class="absolute right-0 mt-12 w-48 bg-white shadow-lg rounded-lg py-2 hidden z-50">
+              <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100">Мій профіль</a>
+              <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100">Мої замовлення</a>
+              <button id="logoutBtn" class="w-full text-left px-4 py-2 hover:bg-gray-100">Вийти</button>
+            </div>
+          </div>
+        `;
+        const userAvatar = document.getElementById("userAvatar");
+        const userDropdown = document.getElementById("userDropdown");
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        userAvatar.addEventListener("click", () => userDropdown.classList.toggle("hidden"));
+        document.addEventListener("click", e => {
+          if(!document.getElementById("userMenu").contains(e.target)) userDropdown.classList.add("hidden");
+        });
+        logoutBtn.addEventListener("click", () => {
+          localStorage.removeItem("currentUser");
+          window.location.href = "login.html";
+        });
+      } else {
+        accountArea.innerHTML = `<a href="login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
+      }
+    }
+
+    // Підсумок замовлення та список товарів
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const checkoutItems = document.getElementById("checkout-items");
+    const totalItemsEl = document.getElementById("total-items");
+    const totalPriceEl = document.getElementById("total-price");
+
+    function renderCart() {
+      checkoutItems.innerHTML = "";
+      let totalItems = 0;
+      let totalPrice = 0;
+
+      cart.forEach((item, index) => {
+        totalItems += item.quantity;
+        totalPrice += item.price * item.quantity;
+
+        const itemEl = document.createElement("div");
+        itemEl.className = "flex justify-between items-center border-b border-gray-200 pb-2";
+        itemEl.innerHTML = `
+          <div class="flex items-center space-x-3">
+            <img src="${item.image}" alt="${item.name}" class="h-12 w-12 object-cover rounded">
+            <div>
+              <p class="font-semibold">${item.name}</p>
+              <p class="text-gray-500 text-sm">Ціна: ${item.price} грн x ${item.quantity}</p>
+            </div>
+          </div>
+          <div class="flex flex-col items-end">
+            <p class="font-semibold mb-1">${item.price * item.quantity} грн</p>
+            <button data-index="${index}" class="text-red-500 text-sm hover:underline remove-item">Видалити</button>
+          </div>
+        `;
+        checkoutItems.appendChild(itemEl);
+      });
+
+      totalItemsEl.textContent = totalItems;
+      totalPriceEl.textContent = totalPrice + " грн";
+
+      document.querySelectorAll(".remove-item").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const idx = e.target.getAttribute("data-index");
+          cart.splice(idx, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        });
+      });
+    }
+
+    renderCart();
+
+    // Обробка форми замовлення
+    const checkoutForm = document.getElementById("checkoutForm");
+    checkoutForm.addEventListener("submit", e => {
+      e.preventDefault();
+      if(cart.length === 0){
+        alert("Ваш кошик порожній!");
+        return;
+      }
+      alert("Замовлення оформлено успішно!");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    });
+
+  });
+  </script>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/cart-counter.js"></script>
+
+</body>
+</html>

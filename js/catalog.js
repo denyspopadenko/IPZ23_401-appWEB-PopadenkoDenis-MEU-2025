@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ==========================
-  // ТОВАРИ
-  // ==========================
   const products = [
     { id: 1, name: "Локшина Buldak Carbonara", category: "ramen", price: 95, image: "/img/prod1.png" },
     { id: 2, name: "Локшина Shin Ramyun", category: "ramen", price: 90, image: "/img/prod2.png" },
@@ -26,9 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortFilter = document.getElementById("sortFilter");
   const searchInput = document.getElementById("searchInput");
 
-  // ==========================
-  // ВІДОБРАЖЕННЯ ТОВАРІВ
-  // ==========================
   function renderProducts(filteredProducts) {
     productsContainer.innerHTML = "";
     filteredProducts.forEach(product => {
@@ -36,8 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "bg-white shadow-md rounded-xl p-4 flex flex-col justify-between transition hover:shadow-lg";
 
       card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" class="h-40 w-full object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">${product.name}</h3>
+        <div class="relative h-40 overflow-hidden rounded-lg group">
+          <img src="${product.image}" alt="${product.name}" class="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110">
+        </div>
+        <h3 class="font-semibold text-lg mt-3">${product.name}</h3>
         <p class="text-brand-red font-bold text-xl mb-3">${product.price} ₴</p>
         <button 
           data-id="${product.id}" 
@@ -52,19 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderProducts(products);
 
-  // ==========================
-  // ФІЛЬТРИ + ПОШУК
-  // ==========================
   function applyFilters() {
     let filtered = [...products];
-
     const category = categoryFilter.value;
     const price = priceFilter.value;
     const sort = sortFilter.value;
     const search = searchInput.value.toLowerCase();
 
     if (category !== "all") filtered = filtered.filter(p => p.category === category);
-
     if (price !== "all") {
       filtered = filtered.filter(p => {
         if (price === "low") return p.price < 100;
@@ -72,22 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (price === "high") return p.price > 180;
       });
     }
-
     if (search) filtered = filtered.filter(p => p.name.toLowerCase().includes(search));
-
     if (sort === "price-asc") filtered.sort((a, b) => a.price - b.price);
     if (sort === "price-desc") filtered.sort((a, b) => b.price - a.price);
 
     renderProducts(filtered);
   }
 
-  [categoryFilter, priceFilter, sortFilter, searchInput].forEach(el => {
-    el.addEventListener("input", applyFilters);
-  });
+  [categoryFilter, priceFilter, sortFilter, searchInput].forEach(el => el.addEventListener("input", applyFilters));
 
-  // ==========================
-  // КОШИК
-  // ==========================
   const updateCartCounter = () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const total = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -106,11 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
       const existing = cart.find(p => p.id === product.id);
 
-      if (existing) {
-        existing.quantity += 1;
-      } else {
-        cart.push({ ...product, quantity: 1 });
-      }
+      if (existing) existing.quantity += 1;
+      else cart.push({ ...product, quantity: 1 });
 
       localStorage.setItem("cart", JSON.stringify(cart));
       updateCartCounter();

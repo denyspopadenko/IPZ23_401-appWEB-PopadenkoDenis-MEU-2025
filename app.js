@@ -430,3 +430,50 @@ ui.mobileMenuButton.addEventListener('click', toggleMobileMenu);
 document.addEventListener('DOMContentLoaded', () => {
     navigateTo('home');
 });
+
+// ===== Мобільне бічне меню =====
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("mobileMenuOverlay");
+
+  function openMenu() {
+    mobileMenu.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  }
+
+  if (menuBtn) menuBtn.addEventListener("click", openMenu);
+  if (overlay) overlay.addEventListener("click", closeMenu);
+});
+
+// ============================
+// ЛІЧИЛЬНИК КОШИКА (усі сторінки)
+// ============================
+document.addEventListener("DOMContentLoaded", () => {
+  const cartCounter = document.getElementById("cart-counter");
+
+  function updateCartCounter() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    if (cartCounter) {
+      cartCounter.textContent = totalItems;
+      cartCounter.style.display = totalItems > 0 ? "inline" : "none";
+    }
+  }
+
+  // Оновити одразу при завантаженні
+  updateCartCounter();
+
+  // Оновлення в реальному часі при зміні localStorage (між вкладками)
+  window.addEventListener("storage", (event) => {
+    if (event.key === "cart") {
+      updateCartCounter();
+    }
+  });
+});

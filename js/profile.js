@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const couponsList = document.getElementById("couponsList");
   const logoutBtn = document.getElementById("logoutBtn");
 
-  profilePic.src = currentUser.profilePic || "/img/default-profile.png";
+  profilePic.src = currentUser.profilePic || "/img/defult-profile.png";
   username.textContent = currentUser.username;
 
   // Відображення замовлень

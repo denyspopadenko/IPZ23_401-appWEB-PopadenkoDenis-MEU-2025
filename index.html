@@ -8,7 +8,7 @@
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/img/logo.png">
 </head>
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.addEventListener("click", (e) => { if(!document.getElementById("userMenu").contains(e.target)) userDropdown.classList.add("hidden"); });
       logoutBtn.addEventListener("click", () => { localStorage.removeItem("currentUser"); window.location.reload(); });
     } else {
-      accountArea.innerHTML = `<a href="login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
+      accountArea.innerHTML = `<a href="/html/login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
     }
   }
 });

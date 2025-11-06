@@ -8,9 +8,9 @@
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body class="bg-beige-light flex flex-col min-h-screen">
 
@@ -18,24 +18,24 @@
 <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
   <!-- LOGO -->
   <a href="index.html" class="flex items-center space-x-2">
-    <img src="/img/logo.png" alt="AsiaBox" class="h-10">
+    <img src="img/logo.png" alt="AsiaBox" class="h-10">
     <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
   </a>
 
   <!-- NAV MENU (Desktop) -->
   <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
-    <a href="/html/catalog.html" class="hover:text-brand-red transition">Каталог</a>
-    <a href="/html/promotions.html" class="hover:text-brand-red transition">Акції</a>
-    <a href="/html/about.html" class="hover:text-brand-red transition">Про нас</a>
-    <a href="/html/delivery.html" class="hover:text-brand-red transition">Доставка і оплата</a>
-    <a href="/html/contacts.html" class="hover:text-brand-red transition">Контакти</a>
+    <a href="html/catalog.html" class="hover:text-brand-red transition">Каталог</a>
+    <a href="html/promotions.html" class="hover:text-brand-red transition">Акції</a>
+    <a href="html/about.html" class="hover:text-brand-red transition">Про нас</a>
+    <a href="html/delivery.html" class="hover:text-brand-red transition">Доставка і оплата</a>
+    <a href="html/contacts.html" class="hover:text-brand-red transition">Контакти</a>
   </nav>
 
   <!-- AUTH + CART -->
   <div class="flex items-center space-x-4">
     <!-- Кошик -->
-    <a href="/html/cart.html" class="relative">
-      <img src="/img/cart.png" alt="Cart" class="h-6">
+    <a href="html/cart.html" class="relative">
+      <img src="img/cart.png" alt="Cart" class="h-6">
       <span id="cart-counter" class="absolute -top-2 -right-2 bg-brand-red text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
     </a>
 
@@ -51,13 +51,13 @@
 <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
 <nav id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col py-6 px-4">
   <button id="mobileMenuClose" class="self-end text-2xl mb-4" aria-label="Закрити меню">✖</button>
-  <a href="/html/catalog.html" class="block py-2 text-brand-red font-semibold">Каталог</a>
-  <a href="/html/promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
-  <a href="/html/about.html" class="block py-2 hover:text-brand-red">Про нас</a>
-  <a href="/html/delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
-  <a href="/html/contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
-  <a href="/html/cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
-  <a href="/html/login.html" class="block py-2 font-semibold text-brand-pink">Увійти</a>
+  <a href="html/catalog.html" class="block py-2 text-brand-red font-semibold">Каталог</a>
+  <a href="html/promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
+  <a href="html/about.html" class="block py-2 hover:text-brand-red">Про нас</a>
+  <a href="html/delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
+  <a href="html/contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
+  <a href="html/cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
+  <a href="html/login.html" class="block py-2 font-semibold text-brand-pink">Увійти</a>
 </nav>
 
 <!-- HERO SECTION -->
@@ -67,7 +67,7 @@
     <p class="text-lg text-gray-600 mb-6">
       Справжні азійські страви, соуси та снеки — з любов’ю, швидкою доставкою та найкращими цінами.
     </p>
-    <a href="/html/catalog.html" class="bg-brand-pink text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-pink-dark transition">
+    <a href="html/catalog.html" class="bg-brand-pink text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-pink-dark transition">
       Переглянути каталог
     </a>
   </section>
@@ -75,19 +75,19 @@
   <!-- BENEFITS -->
   <section class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
     <div class="bg-white rounded-2xl p-6 shadow-md flex flex-col items-center">
-      <img src="/img/delivery.png" alt="Delivery" class="h-12 mb-3">
+      <img src="img/delivery.png" alt="Delivery" class="h-12 mb-3">
       <h3 class="font-bold text-lg mb-2">Швидка доставка</h3>
       <p class="text-gray-600">Отримай своє замовлення всього за 1–2 дні по всій Україні.</p>
     </div>
 
     <div class="bg-white rounded-2xl p-6 shadow-md flex flex-col items-center">
-      <img src="/img/quality.png" alt="Quality" class="h-12 mb-3">
+      <img src="img/quality.png" alt="Quality" class="h-12 mb-3">
       <h3 class="font-bold text-lg mb-2">Справжні продукти з Азії</h3>
       <p class="text-gray-600">Ми напряму співпрацюємо з постачальниками з Кореї, Японії, Таїланду та Китаю.</p>
     </div>
 
     <div class="bg-white rounded-2xl p-6 shadow-md flex flex-col items-center">
-      <img src="/img/discount.png" alt="Discounts" class="h-12 mb-3">
+      <img src="img/discount.png" alt="Discounts" class="h-12 mb-3">
       <h3 class="font-bold text-lg mb-2">Постійні акції</h3>
       <p class="text-gray-600">Отримуй знижки до 50% на улюблені товари щотижня!</p>
     </div>
@@ -97,9 +97,9 @@
 <!-- FOOTER -->
 <footer class="bg-white text-center py-6 border-t mt-10">
   <div class="flex flex-col sm:flex-row justify-center sm:space-x-6 mb-4 text-gray-700 font-medium">
-    <a href="/html/about.html" class="hover:text-brand-red">Про нас</a>
-    <a href="/html/delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
-    <a href="/html/contacts.html" class="hover:text-brand-red">Контакти</a>
+    <a href="html/about.html" class="hover:text-brand-red">Про нас</a>
+    <a href="html/delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
+    <a href="html/contacts.html" class="hover:text-brand-red">Контакти</a>
   </div>
   <p class="text-gray-500 text-sm">&copy; 2025 AsiaBox. Усі права захищені.</p>
 </footer>
@@ -147,14 +147,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.addEventListener("click", (e) => { if(!document.getElementById("userMenu").contains(e.target)) userDropdown.classList.add("hidden"); });
       logoutBtn.addEventListener("click", () => { localStorage.removeItem("currentUser"); window.location.reload(); });
     } else {
-      accountArea.innerHTML = `<a href="/html/login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
+      accountArea.innerHTML = `<a href="html/login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
     }
   }
 });
 </script>
 
-<script src="/js/cart-counter.js"></script>
-<script src="/js/cart.js"></script>
+<script src="js/cart-counter.js"></script>
+<script src="js/cart.js"></script>
 <script src="app.js"></script>
 
 </body>

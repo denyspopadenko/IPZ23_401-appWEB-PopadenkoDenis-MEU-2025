@@ -14,11 +14,13 @@
 
 <!-- HEADER -->
 <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
-  <a href="index.html" class="flex items-center space-x-2">
+  <!-- LOGO -->
+  <a href="/index.html" class="flex items-center space-x-2">
     <img src="/img/logo.png" alt="AsiaBox" class="h-10">
     <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
   </a>
 
+  <!-- NAV MENU (Desktop) -->
   <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
     <a href="catalog.html" class="hover:text-brand-red transition">Каталог</a>
     <a href="promotions.html" class="hover:text-brand-red transition">Акції</a>
@@ -27,6 +29,7 @@
     <a href="contacts.html" class="hover:text-brand-red transition">Контакти</a>
   </nav>
 
+  <!-- AUTH + CART -->
   <div class="flex items-center space-x-4">
     <a href="cart.html" class="relative">
       <img src="/img/cart.png" alt="Cart" class="h-6">
@@ -35,20 +38,37 @@
     <div id="accountArea"></div>
   </div>
 
-  <button id="mobileMenuBtn" class="md:hidden text-2xl" aria-label="Відкрити меню">☰</button>
+  <!-- MOBILE MENU BUTTON -->
+  <button id="mobileMenuBtn" class="md:hidden text-3xl text-gray-700 focus:outline-none" aria-label="Відкрити меню">
+    ☰
+  </button>
 </header>
 
-<!-- Mobile Menu -->
-<div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
-<nav id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col py-6 px-4">
-  <button id="mobileMenuClose" class="self-end text-2xl mb-4" aria-label="Закрити меню">✖</button>
-  <a href="catalog.html" class="block py-2 text-brand-red font-semibold">Каталог</a>
-  <a href="promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
-  <a href="about.html" class="block py-2 hover:text-brand-red">Про нас</a>
-  <a href="delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
-  <a href="contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
-  <a href="cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
-  <a href="login.html" class="block py-2 font-semibold text-brand-pink">Увійти</a>
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40 transition-opacity duration-300"></div>
+
+<!-- MOBILE MENU -->
+<nav id="mobileMenu" class="fixed top-0 left-0 h-full w-72 bg-white shadow-xl transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col">
+  <div class="flex items-center justify-between px-5 py-4 border-b">
+    <a href="/index.html" class="flex items-center space-x-2">
+      <img src="/img/logo.png" alt="AsiaBox" class="h-8 w-8">
+      <span class="font-bold text-xl text-brand-red">AsiaBox</span>
+    </a>
+    <button id="mobileMenuClose" class="text-2xl text-gray-700 hover:text-brand-red focus:outline-none" aria-label="Закрити меню">✕</button>
+  </div>
+
+  <!-- AUTH AREA -->
+  <div id="mobileAuthArea" class="px-5 py-5 border-b"></div>
+
+  <!-- MENU LINKS -->
+  <div class="flex flex-col px-5 py-4 space-y-3 font-semibold text-gray-700">
+    <a href="catalog.html" class="block py-2 hover:text-brand-red transition">Каталог</a>
+    <a href="promotions.html" class="block py-2 hover:text-brand-red transition">Акції</a>
+    <a href="about.html" class="block py-2 hover:text-brand-red transition">Про нас</a>
+    <a href="delivery.html" class="block py-2 hover:text-brand-red transition">Доставка і оплата</a>
+    <a href="contacts.html" class="block py-2 hover:text-brand-red transition">Контакти</a>
+    <a href="cart.html" class="block py-2 hover:text-brand-red transition">Кошик</a>
+  </div>
 </nav>
 
 <!-- MAIN -->
@@ -57,14 +77,14 @@
 
   <div id="cartContainer" class="bg-white shadow-md rounded-xl p-6">
     <div id="cartItems" class="space-y-4">
-      <!-- JS рендерить товари -->
+      <!-- JS вставить товари -->
     </div>
 
     <p id="emptyCart" class="text-center text-gray-500 hidden">Кошик порожній 😔</p>
 
     <div class="flex flex-col md:flex-row md:items-center md:justify-between mt-6 border-t pt-4 gap-4">
       <div>
-        <button id="clearCart" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">Очистити кошик</button>
+        <button id="clearCart" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition">Очистити кошик</button>
       </div>
 
       <div class="flex items-center justify-between md:justify-end gap-6">
@@ -72,9 +92,8 @@
           <h3 class="text-lg font-medium text-gray-700">Загальна сума</h3>
           <p id="cartTotal" class="text-2xl font-bold text-brand-red">0 ₴</p>
         </div>
-
         <div>
-          <button id="checkoutBtn" class="bg-brand-pink text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-pink-dark">Оформити замовлення</button>
+          <a href="checkout.html" id="checkoutBtn" class="bg-brand-pink text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-pink-dark transition">Оформити замовлення</a>
         </div>
       </div>
     </div>
@@ -94,27 +113,34 @@
 <!-- JS -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Мобільне меню
+  // --- Мобільне меню ---
   const menuBtn = document.getElementById("mobileMenuBtn");
   const closeBtn = document.getElementById("mobileMenuClose");
   const mobileMenu = document.getElementById("mobileMenu");
   const overlay = document.getElementById("mobileMenuOverlay");
 
-  function openMenu() { mobileMenu.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); }
-  function closeMenu() { mobileMenu.classList.add("-translate-x-full"); overlay.classList.add("hidden"); }
+  const openMenu = () => {
+    mobileMenu.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+  };
+  const closeMenu = () => {
+    mobileMenu.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  };
 
   menuBtn?.addEventListener("click", openMenu);
   closeBtn?.addEventListener("click", closeMenu);
   overlay?.addEventListener("click", closeMenu);
 
-  // Динамічний акаунт
+  // --- Акаунт/логін ---
   const accountArea = document.getElementById("accountArea");
+  const mobileAuthArea = document.getElementById("mobileAuthArea");
   const currentUserEmail = localStorage.getItem("currentUser");
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const user = users.find(u => u.email === currentUserEmail);
 
-  if(accountArea) {
-    if(user) {
+  if (accountArea) {
+    if (user) {
       accountArea.innerHTML = `
         <div id="userMenu" class="relative flex items-center space-x-2 cursor-pointer">
           <img id="userAvatar" src="${user.avatar || '/img/default-avatar.png'}" class="h-10 w-10 rounded-full shadow-md">
@@ -124,17 +150,43 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100">Мої замовлення</a>
             <button id="logoutBtn" class="w-full text-left px-4 py-2 hover:bg-gray-100">Вийти</button>
           </div>
-        </div>
-      `;
-      const userAvatar = document.getElementById("userAvatar");
-      const userDropdown = document.getElementById("userDropdown");
-      const logoutBtn = document.getElementById("logoutBtn");
-
-      userAvatar.addEventListener("click", () => userDropdown.classList.toggle("hidden"));
-      document.addEventListener("click", e => { if(!document.getElementById("userMenu").contains(e.target)) userDropdown.classList.add("hidden"); });
-      logoutBtn.addEventListener("click", () => { localStorage.removeItem("currentUser"); window.location.reload(); });
+        </div>`;
+      const avatar = document.getElementById("userAvatar");
+      const dropdown = document.getElementById("userDropdown");
+      avatar.addEventListener("click", () => dropdown.classList.toggle("hidden"));
+      document.addEventListener("click", e => {
+        if (!document.getElementById("userMenu").contains(e.target)) dropdown.classList.add("hidden");
+      });
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("currentUser");
+        window.location.reload();
+      });
     } else {
       accountArea.innerHTML = `<a href="login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
+    }
+  }
+
+  // --- Мобільна версія акаунта ---
+  if (mobileAuthArea) {
+    if (user) {
+      mobileAuthArea.innerHTML = `
+        <div class="flex items-center space-x-3">
+          <img src="${user.avatar || '/img/default-avatar.png'}" alt="Avatar" class="h-12 w-12 rounded-full shadow-md border">
+          <div>
+            <p class="font-semibold">${user.name}</p>
+            <a href="profile.html" class="text-sm text-brand-red hover:underline">Мій профіль</a>
+          </div>
+        </div>
+        <button id="logoutBtnMobile" class="mt-4 w-full text-sm font-semibold bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition">Вийти</button>`;
+      document.getElementById("logoutBtnMobile").addEventListener("click", () => {
+        localStorage.removeItem("currentUser");
+        window.location.href = "login.html";
+      });
+    } else {
+      mobileAuthArea.innerHTML = `
+        <a href="login.html" class="block text-center bg-brand-pink text-white font-semibold py-2 rounded-lg hover:bg-brand-pink-dark transition">
+          Увійти
+        </a>`;
     }
   }
 });
@@ -142,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script src="/js/cart.js"></script>
 <script src="/js/cart-counter.js"></script>
-<script src="app.js"></script>
+<script src="/app.js"></script>
 
 </body>
 </html>

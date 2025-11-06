@@ -13,11 +13,12 @@
 
 <!-- HEADER -->
 <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
-  <a href="index.html" class="flex items-center space-x-2">
+  <a href="/index.html" class="flex items-center space-x-2">
     <img src="/img/logo.png" alt="AsiaBox" class="h-10">
     <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
   </a>
 
+  <!-- Desktop nav -->
   <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
     <a href="catalog.html" class="hover:text-brand-red">Каталог</a>
     <a href="promotions.html" class="hover:text-brand-red">Акції</a>
@@ -26,29 +27,56 @@
     <a href="contacts.html" class="hover:text-brand-red">Контакти</a>
   </nav>
 
-  <div id="userMenu" class="relative flex items-center space-x-4">
-    <a href="#" id="loginBtn" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>
-    <div id="loggedInMenu" class="hidden relative">
-      <img id="userAvatar" src="/img/default-avatar.png" class="h-8 w-8 rounded-full cursor-pointer">
-      <span id="userName" class="ml-2 font-semibold cursor-pointer"></span>
-      <div id="dropdownMenu" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 hidden">
-        <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100">Профіль</a>
-        <a href="orders.html" class="block px-4 py-2 hover:bg-gray-100">Замовлення</a>
-        <button id="logoutBtn" class="w-full text-left px-4 py-2 hover:bg-gray-100">Вийти</button>
-      </div>
-    </div>
+  <!-- AUTH + CART -->
+  <div class="flex items-center space-x-4">
+    <!-- Кошик -->
+    <a href="/html/cart.html" class="relative">
+      <img src="/img/cart.png" alt="Cart" class="h-6">
+      <span id="cart-counter" class="absolute -top-2 -right-2 bg-brand-red text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
+    </a>
+
+    <!-- Аккаунт -->
+    <div id="accountArea"></div>
   </div>
+
+  <!-- Mobile menu button -->
+  <button id="mobileMenuBtn" class="md:hidden text-2xl">☰</button>
 </header>
 
+<!-- MOBILE MENU -->
+<div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+<nav id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col">
+  <div class="flex items-center justify-between px-4 py-4 border-b">
+    <a href="/index.html" class="flex items-center space-x-2">
+      <img src="/img/logo.png" alt="AsiaBox" class="h-8 w-8">
+      <span class="font-bold text-xl text-brand-red">AsiaBox</span>
+    </a>
+    <button id="mobileMenuClose" class="text-2xl">✖</button>
+  </div>
+
+  <!-- AUTH AREA -->
+  <div id="mobileAuthArea" class="px-4 py-5 border-b"></div>
+
+  <!-- Навігація -->
+  <div class="flex flex-col px-4 py-4 space-y-2 font-semibold text-gray-700">
+    <a href="catalog.html" class="block py-2 hover:text-brand-red">Каталог</a>
+    <a href="promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
+    <a href="about.html" class="block py-2 hover:text-brand-red">Про нас</a>
+    <a href="delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
+    <a href="contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
+    <a href="cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
 <main class="flex-grow flex justify-center items-center px-6 py-12">
   <div class="bg-white shadow-md rounded-2xl p-8 w-full max-w-md text-center">
     <h2 class="text-3xl font-bold text-brand-red mb-6" id="formTitle">Увійти в акаунт</h2>
     
-    <!-- LOGIN FORM -->
     <form id="authForm" class="space-y-5">
-      <div class="text-left">
-        <label for="name" class="block font-semibold mb-1" id="nameLabel" style="display:none;">Ім’я</label>
-        <input type="text" id="name" name="name" placeholder="Ім’я" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-brand-pink" style="display:none;">
+      <div id="nameField" class="text-left hidden">
+        <label for="name" class="block font-semibold mb-1">Ім’я</label>
+        <input type="text" id="name" name="name" placeholder="Ім’я" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-brand-pink">
       </div>
 
       <div class="text-left">
@@ -73,19 +101,40 @@
   </div>
 </main>
 
+<!-- FOOTER -->
 <footer class="bg-white text-center py-6 border-t mt-10">
   <p class="text-gray-500 text-sm">&copy; 2025 AsiaBox. Усі права захищені.</p>
 </footer>
 
+<!-- JS -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Toggle login / register
-  const toggleLink = document.getElementById("toggleLink");
-  const toggleText = document.getElementById("toggleText");
+  // === Мобільне меню ===
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  const closeBtn = document.getElementById("mobileMenuClose");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("mobileMenuOverlay");
+  menuBtn?.addEventListener("click", () => {
+    mobileMenu.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+  });
+  closeBtn?.addEventListener("click", () => {
+    mobileMenu.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  });
+  overlay?.addEventListener("click", () => {
+    mobileMenu.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  });
+
+  // === Логін / Реєстрація ===
+  const form = document.getElementById("authForm");
+  const nameField = document.getElementById("nameField");
   const formTitle = document.getElementById("formTitle");
-  const nameInput = document.getElementById("name");
-  const nameLabel = document.getElementById("nameLabel");
   const submitBtn = document.getElementById("submitBtn");
+  const toggleText = document.getElementById("toggleText");
+  const toggleLink = document.getElementById("toggleLink");
+  const loginMessage = document.getElementById("loginMessage");
 
   let isRegister = false;
 
@@ -94,75 +143,107 @@ document.addEventListener("DOMContentLoaded", () => {
     isRegister = !isRegister;
 
     if (isRegister) {
-      formTitle.textContent = "Реєстрація";
-      nameInput.style.display = "block";
-      nameLabel.style.display = "block";
+      formTitle.textContent = "Створити акаунт";
+      nameField.classList.remove("hidden");
       submitBtn.textContent = "Зареєструватися";
-      toggleText.textContent = "Вже є акаунт?";
+      toggleText.textContent = "Вже маєте акаунт?";
       toggleLink.textContent = "Увійти";
     } else {
       formTitle.textContent = "Увійти в акаунт";
-      nameInput.style.display = "none";
-      nameLabel.style.display = "none";
+      nameField.classList.add("hidden");
       submitBtn.textContent = "Увійти";
       toggleText.textContent = "Немає акаунта?";
       toggleLink.textContent = "Зареєструватися";
     }
   });
 
-  // Авторизація та реєстрація
-  const authForm = document.getElementById("authForm");
-  const message = document.getElementById("loginMessage");
-
-  authForm.addEventListener("submit", (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const name = nameInput.value.trim();
+    const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
-
-    if (!email.includes("@")) {
-      message.textContent = "❌ Введіть коректну електронну пошту.";
-      message.className = "mt-4 text-red-600 font-semibold";
-      return;
-    }
-
-    if (password.length < 6) {
-      message.textContent = "❌ Пароль має містити щонайменше 6 символів.";
-      message.className = "mt-4 text-red-600 font-semibold";
-      return;
-    }
-
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
     if (isRegister) {
-      // Перевірка чи вже існує
-      if (users.some(u => u.email === email)) {
-        message.textContent = "❌ Користувач вже існує!";
-        message.className = "mt-4 text-red-600 font-semibold";
+      if (!name || !email || !password) {
+        loginMessage.textContent = "Будь ласка, заповніть усі поля.";
+        loginMessage.className = "text-red-500 font-semibold";
         return;
       }
-
-      users.push({ email, password, name, avatar: "/img/default-avatar.png", orders: [], coupons: [] });
+      if (users.find(u => u.email === email)) {
+        loginMessage.textContent = "Користувач з такою поштою вже існує!";
+        loginMessage.className = "text-red-500 font-semibold";
+        return;
+      }
+      users.push({ name, email, password });
       localStorage.setItem("users", JSON.stringify(users));
-      localStorage.setItem("currentUser", email);
-
-      message.textContent = "✅ Реєстрація успішна! Перенаправлення...";
-      message.className = "mt-4 text-green-600 font-semibold";
-      setTimeout(() => window.location.href = "profile.html", 1500);
+      loginMessage.textContent = "Реєстрація успішна! Тепер увійдіть.";
+      loginMessage.className = "text-green-600 font-semibold";
+      toggleLink.click();
     } else {
-      // Логін
       const user = users.find(u => u.email === email && u.password === password);
-      if (!user) {
-        message.textContent = "❌ Некоректна електронна пошта або пароль!";
-        message.className = "mt-4 text-red-600 font-semibold";
-        return;
+      if (user) {
+        localStorage.setItem("currentUser", email);
+        loginMessage.textContent = "Вхід успішний!";
+        loginMessage.className = "text-green-600 font-semibold";
+        setTimeout(() => window.location.href = "/index.html", 800);
+      } else {
+        loginMessage.textContent = "Невірна пошта або пароль.";
+        loginMessage.className = "text-red-500 font-semibold";
       }
-      localStorage.setItem("currentUser", email);
-      message.textContent = "✅ Успішний вхід! Перенаправлення...";
-      message.className = "mt-4 text-green-600 font-semibold";
-      setTimeout(() => window.location.href = "profile.html", 1500);
     }
   });
+
+  // === Відображення акаунта ===
+  const accountArea = document.getElementById("accountArea");
+  const mobileAuthArea = document.getElementById("mobileAuthArea");
+  const currentUserEmail = localStorage.getItem("currentUser");
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find(u => u.email === currentUserEmail);
+
+  if (accountArea) {
+    if (user) {
+      accountArea.innerHTML = `
+        <div id="userMenu" class="relative flex items-center space-x-2 cursor-pointer">
+          <img src="/img/default-avatar.png" class="h-10 w-10 rounded-full shadow-md">
+          <span class="font-semibold">${user.name}</span>
+          <div id="userDropdown" class="absolute right-0 mt-12 w-48 bg-white shadow-lg rounded-lg py-2 hidden z-50">
+            <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100">Мій профіль</a>
+            <button id="logoutBtn" class="w-full text-left px-4 py-2 hover:bg-gray-100">Вийти</button>
+          </div>
+        </div>`;
+      document.getElementById("userMenu").addEventListener("click", () => {
+        document.getElementById("userDropdown").classList.toggle("hidden");
+      });
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("currentUser");
+        window.location.reload();
+      });
+    } else {
+      accountArea.innerHTML = `<a href="login.html" class="bg-brand-pink text-white px-4 py-2 rounded-lg font-semibold hover:bg-brand-pink-dark transition">Увійти</a>`;
+    }
+  }
+
+  if (mobileAuthArea) {
+    if (user) {
+      mobileAuthArea.innerHTML = `
+        <div class="flex items-center space-x-3">
+          <img src="/img/default-avatar.png" class="h-12 w-12 rounded-full shadow-md border">
+          <div>
+            <p class="font-semibold">${user.name}</p>
+            <a href="profile.html" class="text-sm text-brand-red hover:underline">Мій профіль</a>
+          </div>
+        </div>
+        <button id="logoutBtnMobile" class="mt-4 w-full text-sm font-semibold bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition">Вийти</button>`;
+      document.getElementById("logoutBtnMobile").addEventListener("click", () => {
+        localStorage.removeItem("currentUser");
+        window.location.href = "login.html";
+      });
+    } else {
+      mobileAuthArea.innerHTML = `
+        <a href="login.html" class="block text-center bg-brand-pink text-white font-semibold py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
+    }
+  }
 });
 </script>
 

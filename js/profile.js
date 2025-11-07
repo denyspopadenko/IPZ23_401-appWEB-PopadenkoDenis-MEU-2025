@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser) {
-    window.location.href = "html/login.html"; // якщо не залогінений
+    window.location.href = "../html/login.html"; // якщо не залогінений
     return;
   }
 
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const couponsList = document.getElementById("couponsList");
   const logoutBtn = document.getElementById("logoutBtn");
 
-  profilePic.src = currentUser.profilePic || "img/defult-profile.png";
+  profilePic.src = currentUser.profilePic || "../img/defult-profile.png";
   username.textContent = currentUser.username;
 
   // Відображення замовлень
@@ -30,6 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("currentUser");
-    window.location.href = "html/login.html";
+    window.location.href = "../html/login.html";
   });
 });

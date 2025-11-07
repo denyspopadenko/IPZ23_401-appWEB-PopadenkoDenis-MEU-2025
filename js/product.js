@@ -33,7 +33,7 @@ const products = [
     name: "Соус Kikkoman соєвий (150мл)",
     description: "Натурально зброджений соєвий соус з Японії — класика до будь-якої страви.",
     price: 99,
-    image: "../img/prod5.png"
+    image: "/IPZ23_401-APPWEB-POPADENKODENIS-MEU-2025/img/prod5.png"
   },
   {
     id: 6,

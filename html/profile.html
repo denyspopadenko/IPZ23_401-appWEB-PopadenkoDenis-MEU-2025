@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Профіль — AsiaBox</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/png" href="/img/logo.png">
 </head>
 
 <body class="bg-beige-light flex flex-col min-h-screen">
@@ -14,37 +14,37 @@
 <!-- HEADER -->
 <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
   <!-- Логотип -->
-  <a href="index.html" class="flex items-center space-x-2">
-    <img src="img/logo.png" alt="AsiaBox" class="h-10">
+  <a href="/index.html" class="flex items-center space-x-2">
+    <img src="/img/logo.png" alt="AsiaBox" class="h-10">
     <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
   </a>
 
   <!-- Навігація (десктоп) -->
   <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
-    <a href="html/catalog.html" class="hover:text-brand-red">Каталог</a>
-    <a href="html/promotions.html" class="hover:text-brand-red">Акції</a>
-    <a href="html/about.html" class="hover:text-brand-red">Про нас</a>
-    <a href="html/delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
-    <a href="html/contacts.html" class="hover:text-brand-red">Контакти</a>
+    <a href="/html/catalog.html" class="hover:text-brand-red">Каталог</a>
+    <a href="/html/promotions.html" class="hover:text-brand-red">Акції</a>
+    <a href="/html/about.html" class="hover:text-brand-red">Про нас</a>
+    <a href="/html/delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
+    <a href="/html/contacts.html" class="hover:text-brand-red">Контакти</a>
   </nav>
 
   <!-- Кошик + акаунт -->
   <div class="flex items-center space-x-4">
-    <a href="html/cart.html" class="relative">
-      <img src="img/cart.png" alt="Cart" class="h-6">
+    <a href="/html/cart.html" class="relative">
+      <img src="/img/cart.png" alt="Cart" class="h-6">
       <span id="cart-counter" class="absolute -top-2 -right-2 bg-brand-red text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
     </a>
 
     <!-- Увійти / профіль -->
-    <a href="html/login.html" id="loginBtn" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>
+    <a href="/html/login.html" id="loginBtn" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>
 
     <div id="userMenu" class="relative flex items-center space-x-2 cursor-pointer hidden">
-      <img id="userAvatar" src="img/default-avatar.png" class="h-10 w-10 rounded-full shadow-md">
+      <img id="userAvatar" src="/img/default-avatar.png" class="h-10 w-10 rounded-full shadow-md">
       <span id="userName" class="font-semibold"></span>
 
       <div id="userDropdown" class="absolute right-0 mt-12 w-48 bg-white shadow-lg rounded-lg py-2 hidden z-50">
-        <a href="html/profile.html" class="block px-4 py-2 hover:bg-gray-100">Мій профіль</a>
-        <a href="html/cart.html" class="block px-4 py-2 hover:bg-gray-100">Мої замовлення</a>
+        <a href="/html/profile.html" class="block px-4 py-2 hover:bg-gray-100">Мій профіль</a>
+        <a href="/html/cart.html" class="block px-4 py-2 hover:bg-gray-100">Мої замовлення</a>
         <button id="logoutBtn" class="w-full text-left px-4 py-2 hover:bg-gray-100">Вийти</button>
       </div>
     </div>
@@ -60,8 +60,8 @@
 <nav id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col">
   <!-- Верхня частина -->
   <div class="flex items-center justify-between px-4 py-4 border-b">
-    <a href="index.html" class="flex items-center space-x-2">
-      <img src="img/logo.png" alt="AsiaBox" class="h-8 w-8">
+    <a href="/index.html" class="flex items-center space-x-2">
+      <img src="/img/logo.png" alt="AsiaBox" class="h-8 w-8">
       <span class="font-bold text-xl text-brand-red">AsiaBox</span>
     </a>
     <button id="mobileMenuClose" class="text-2xl" aria-label="Закрити меню">✖</button>
@@ -74,12 +74,12 @@
 
   <!-- Посилання -->
   <div class="flex flex-col px-4 py-4 space-y-2 font-semibold text-gray-700">
-    <a href="html/catalog.html" class="block py-2 hover:text-brand-red">Каталог</a>
-    <a href="html/promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
-    <a href="html/about.html" class="block py-2 hover:text-brand-red">Про нас</a>
-    <a href="html/delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
-    <a href="html/contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
-    <a href="html/cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
+    <a href="/html/catalog.html" class="block py-2 hover:text-brand-red">Каталог</a>
+    <a href="/html/promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
+    <a href="/html/about.html" class="block py-2 hover:text-brand-red">Про нас</a>
+    <a href="/html/delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
+    <a href="/html/contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
+    <a href="/html/cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
   </div>
 </nav>
 
@@ -90,7 +90,7 @@
   <!-- ПРОФІЛЬ -->
   <div class="bg-white shadow-md rounded-2xl p-8 mb-8 flex flex-col items-center">
     <div class="relative">
-      <img id="profilePhoto" src="img/default-avatar.png" class="h-32 w-32 rounded-full object-cover shadow-lg border-2 border-white">
+      <img id="profilePhoto" src="/img/default-avatar.png" class="h-32 w-32 rounded-full object-cover shadow-lg border-2 border-white">
       <input type="file" id="photoInput" accept="image/*" class="absolute bottom-0 right-0 opacity-0 w-10 h-10 cursor-pointer">
       <label for="photoInput" class="absolute bottom-0 right-0 bg-brand-pink text-white rounded-full w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-brand-pink-dark">✎</label>
     </div>
@@ -155,14 +155,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileAuthArea = document.getElementById("mobileAuthArea");
 
   if (!user) {
-    mobileAuthArea.innerHTML = `<a href="html/login.html" class="block text-center bg-brand-pink text-white font-semibold py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
+    mobileAuthArea.innerHTML = `<a href="/html/login.html" class="block text-center bg-brand-pink text-white font-semibold py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
     return;
   }
 
   // --- Показати користувача ---
   loginBtn.classList.add("hidden");
   userMenu.classList.remove("hidden");
-  userAvatar.src = user.avatar || "img/default-avatar.png";
+  userAvatar.src = user.avatar || "/img/default-avatar.png";
   userName.textContent = user.name;
 
   userAvatar.addEventListener("click", () => userDropdown.classList.toggle("hidden"));
@@ -170,23 +170,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.removeItem("currentUser");
-    window.location.href = "html/login.html";
+    window.location.href = "/html/login.html";
   });
 
   // --- Мобільна версія профілю ---
   mobileAuthArea.innerHTML = `
     <div class="flex items-center space-x-3">
-      <img src="${user.avatar || 'img/default-avatar.png'}" alt="Avatar" class="h-12 w-12 rounded-full shadow-md border">
+      <img src="${user.avatar || '/img/default-avatar.png'}" alt="Avatar" class="h-12 w-12 rounded-full shadow-md border">
       <div>
         <p class="font-semibold">${user.name}</p>
-        <a href="html/profile.html" class="text-sm text-brand-red hover:underline">Мій профіль</a>
+        <a href="/html/profile.html" class="text-sm text-brand-red hover:underline">Мій профіль</a>
       </div>
     </div>
     <button id="logoutBtnMobile" class="mt-4 w-full text-sm font-semibold bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition">Вийти</button>
   `;
   document.getElementById("logoutBtnMobile").addEventListener("click", () => {
     localStorage.removeItem("currentUser");
-    window.location.href = "html/login.html";
+    window.location.href = "/html/login.html";
   });
 
   // --- Профіль ---
@@ -222,9 +222,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<script src="js/cart-counter.js"></script>
-<script src="js/profile.js"></script>
-<script src="app.js"></script>
+<script src="/js/cart-counter.js"></script>
+<script src="/js/profile.js"></script>
+<script src="/app.js"></script>
 
 
 </body>

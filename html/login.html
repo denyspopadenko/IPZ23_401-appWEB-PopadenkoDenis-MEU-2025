@@ -20,11 +20,11 @@
 
   <!-- Desktop nav -->
   <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
-    <a href="catalog.html" class="hover:text-brand-red">Каталог</a>
-    <a href="promotions.html" class="hover:text-brand-red">Акції</a>
-    <a href="about.html" class="hover:text-brand-red">Про нас</a>
-    <a href="delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
-    <a href="contacts.html" class="hover:text-brand-red">Контакти</a>
+    <a href="/html/catalog.html" class="hover:text-brand-red">Каталог</a>
+    <a href="/html/promotions.html" class="hover:text-brand-red">Акції</a>
+    <a href="/html/about.html" class="hover:text-brand-red">Про нас</a>
+    <a href="/html/delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
+    <a href="/html/contacts.html" class="hover:text-brand-red">Контакти</a>
   </nav>
 
   <!-- AUTH + CART -->
@@ -59,12 +59,12 @@
 
   <!-- Навігація -->
   <div class="flex flex-col px-4 py-4 space-y-2 font-semibold text-gray-700">
-    <a href="catalog.html" class="block py-2 hover:text-brand-red">Каталог</a>
-    <a href="promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
-    <a href="about.html" class="block py-2 hover:text-brand-red">Про нас</a>
-    <a href="delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
-    <a href="contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
-    <a href="cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
+    <a href="/html/catalog.html" class="block py-2 hover:text-brand-red">Каталог</a>
+    <a href="/html/promotions.html" class="block py-2 hover:text-brand-red">Акції</a>
+    <a href="/html/about.html" class="block py-2 hover:text-brand-red">Про нас</a>
+    <a href="/html/delivery.html" class="block py-2 hover:text-brand-red">Доставка і оплата</a>
+    <a href="/html/contacts.html" class="block py-2 hover:text-brand-red">Контакти</a>
+    <a href="/html/cart.html" class="block py-2 hover:text-brand-red">Кошик</a>
   </div>
 </nav>
 
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <img src="/img/default-avatar.png" class="h-10 w-10 rounded-full shadow-md">
           <span class="font-semibold">${user.name}</span>
           <div id="userDropdown" class="absolute right-0 mt-12 w-48 bg-white shadow-lg rounded-lg py-2 hidden z-50">
-            <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100">Мій профіль</a>
+            <a href="/html/profile.html" class="block px-4 py-2 hover:bg-gray-100">Мій профіль</a>
             <button id="logoutBtn" class="w-full text-left px-4 py-2 hover:bg-gray-100">Вийти</button>
           </div>
         </div>`;
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.reload();
       });
     } else {
-      accountArea.innerHTML = `<a href="login.html" class="bg-brand-pink text-white px-4 py-2 rounded-lg font-semibold hover:bg-brand-pink-dark transition">Увійти</a>`;
+      accountArea.innerHTML = `<a href="/html/login.html" class="bg-brand-pink text-white px-4 py-2 rounded-lg font-semibold hover:bg-brand-pink-dark transition">Увійти</a>`;
     }
   }
 
@@ -231,22 +231,24 @@ document.addEventListener("DOMContentLoaded", () => {
           <img src="/img/default-avatar.png" class="h-12 w-12 rounded-full shadow-md border">
           <div>
             <p class="font-semibold">${user.name}</p>
-            <a href="profile.html" class="text-sm text-brand-red hover:underline">Мій профіль</a>
+            <a href="/html/profile.html" class="text-sm text-brand-red hover:underline">Мій профіль</a>
           </div>
         </div>
         <button id="logoutBtnMobile" class="mt-4 w-full text-sm font-semibold bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition">Вийти</button>`;
       document.getElementById("logoutBtnMobile").addEventListener("click", () => {
         localStorage.removeItem("currentUser");
-        window.location.href = "login.html";
+        window.location.href = "/html/login.html";
       });
     } else {
       mobileAuthArea.innerHTML = `
-        <a href="login.html" class="block text-center bg-brand-pink text-white font-semibold py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
+        <a href="/html/login.html" class="block text-center bg-brand-pink text-white font-semibold py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
     }
   }
 });
 </script>
 
 <script src="/js/cart-counter.js"></script>
+<script src="/app.js"></script>
+<script src="/js/auth.js"></script>
 </body>
 </html>

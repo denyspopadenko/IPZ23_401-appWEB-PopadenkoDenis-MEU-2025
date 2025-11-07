@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 2, name: "Локшина Shin Ramyun", category: "ramen", price: 90, image: "../img/prod2.png" },
     { id: 3, name: "Чіпси з норі Tao Kae Noi", category: "snack", price: 75, image: "../img/prod3.png" },
     { id: 4, name: "Кукурудзяні снеки Corn Hot & Spicy", category: "snack", price: 65, image: "../img/prod4.png" },
-    { id: 5, name: "Соус Kikkoman Соєвий", category: "sauce", price: 120, image: "/IPZ23_401-APPWEB-POPADENKODENIS-MEU-2025/img/prod5.png" },
+    { id: 5, name: "Соус Kikkoman Соєвий", category: "sauce", price: 120, image: "../img/prod5.png" },
     { id: 6, name: "Соус Sriracha Чилі", category: "sauce", price: 150, image: "../img/prod6.png" },
     { id: 7, name: "Напій Milkis Оригінал", category: "drink", price: 60, image: "../img/prod7.png" },
     { id: 8, name: "Напій Chupa Chups Кавун", category: "drink", price: 55, image: "../img/prod8.png" },

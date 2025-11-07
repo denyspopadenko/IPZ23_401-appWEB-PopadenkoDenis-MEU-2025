@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Профіль ---
   document.getElementById("profileName").textContent = user.name;
   document.getElementById("profileEmail").textContent = user.email;
-  document.getElementById("profilePhoto").src = user.avatar || "img/default-avatar.png";
+  document.getElementById("profilePhoto").src = user.avatar || "/img/default-avatar.png";
 
   const photoInput = document.getElementById("photoInput");
   photoInput.addEventListener("change", (e) => {

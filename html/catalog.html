@@ -162,11 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user) {
       accountArea.innerHTML = `
         <div id="userMenu" class="relative flex items-center space-x-2 cursor-pointer">
-          <img id="userAvatar" src="${user.avatar || 'img/default-avatar.png'}" class="h-10 w-10 rounded-full shadow-md">
+          <img id="userAvatar" src="${user.avatar || '/img/default-avatar.png'}" class="h-10 w-10 rounded-full shadow-md">
           <span id="userName" class="font-semibold">${user.name}</span>
           <div id="userDropdown" class="absolute right-0 mt-12 w-48 bg-white shadow-lg rounded-lg py-2 hidden z-50">
-            <a href="html/profile.html" class="block px-4 py-2 hover:bg-gray-100">Мій профіль</a>
-            <a href="html/profile.html" class="block px-4 py-2 hover:bg-gray-100">Мої замовлення</a>
+            <a href="/html/profile.html" class="block px-4 py-2 hover:bg-gray-100">Мій профіль</a>
+            <a href="/html/profile.html" class="block px-4 py-2 hover:bg-gray-100">Мої замовлення</a>
             <button id="logoutBtn" class="w-full text-left px-4 py-2 hover:bg-gray-100">Вийти</button>
           </div>
         </div>`;
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.reload();
       });
     } else {
-      accountArea.innerHTML = `<a href="html/login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
+      accountArea.innerHTML = `<a href="/html/login.html" class="text-sm font-semibold bg-brand-pink text-white px-4 py-2 rounded-lg hover:bg-brand-pink-dark transition">Увійти</a>`;
     }
   }
 
@@ -190,10 +190,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user) {
       mobileAuthArea.innerHTML = `
         <div class="flex items-center space-x-3">
-          <img src="${user.avatar || 'img/default-avatar.png'}" alt="Avatar" class="h-12 w-12 rounded-full shadow-md border">
+          <img src="${user.avatar || '/img/default-avatar.png'}" alt="Avatar" class="h-12 w-12 rounded-full shadow-md border">
           <div>
             <p class="font-semibold">${user.name}</p>
-            <a href="html/profile.html" class="text-sm text-brand-red hover:underline">Мій профіль</a>
+            <a href="/html/profile.html" class="text-sm text-brand-red hover:underline">Мій профіль</a>
           </div>
         </div>
         <button id="logoutBtnMobile" class="mt-4 w-full text-sm font-semibold bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition">Вийти</button>`;

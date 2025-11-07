@@ -7,30 +7,30 @@
 
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body class="bg-beige-light flex flex-col min-h-screen">
 
 <!-- HEADER -->
 <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
-  <a href="/index.html" class="flex items-center space-x-2">
-    <img src="/img/logo.png" alt="AsiaBox" class="h-10">
+  <a href="index.html" class="flex items-center space-x-2">
+    <img src="img/logo.png" alt="AsiaBox" class="h-10">
     <h1 class="text-2xl font-bold text-brand-red">AsiaBox</h1>
   </a>
 
   <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
-    <a href="catalog.html" class="hover:text-brand-red transition">Каталог</a>
-    <a href="promotions.html" class="hover:text-brand-red transition">Акції</a>
-    <a href="about.html" class="text-brand-red transition">Про нас</a>
-    <a href="delivery.html" class="hover:text-brand-red transition">Доставка і оплата</a>
-    <a href="contacts.html" class="hover:text-brand-red transition">Контакти</a>
+    <a href="html/catalog.html" class="hover:text-brand-red transition">Каталог</a>
+    <a href="html/promotions.html" class="hover:text-brand-red transition">Акції</a>
+    <a href="html/about.html" class="text-brand-red transition">Про нас</a>
+    <a href="html/delivery.html" class="hover:text-brand-red transition">Доставка і оплата</a>
+    <a href="html/contacts.html" class="hover:text-brand-red transition">Контакти</a>
   </nav>
 
   <div class="flex items-center space-x-4">
     <!-- Кошик -->
-    <a href="cart.html" class="relative">
-      <img src="/img/cart.png" alt="Cart" class="h-6">
+    <a href="html/cart.html" class="relative">
+      <img src="img/cart.png" alt="Cart" class="h-6">
       <span id="cart-counter" class="absolute -top-2 -right-2 bg-brand-red text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
     </a>
     <!-- Динамічний акаунт/логін -->
@@ -50,8 +50,8 @@
 <nav id="mobileMenu" class="fixed top-0 left-0 h-full w-72 bg-white shadow-xl transform -translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col">
   <!-- Верхня частина -->
   <div class="flex items-center justify-between px-5 py-4 border-b">
-    <a href="/index.html" class="flex items-center space-x-2">
-      <img src="/img/logo.png" alt="AsiaBox" class="h-8 w-8">
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="img/logo.png" alt="AsiaBox" class="h-8 w-8">
       <span class="font-bold text-xl text-brand-red">AsiaBox</span>
     </a>
     <button id="mobileMenuClose" class="text-2xl text-gray-700 hover:text-brand-red focus:outline-none" aria-label="Закрити меню">✕</button>
@@ -62,12 +62,12 @@
 
   <!-- Основне меню -->
   <div class="flex flex-col px-5 py-4 space-y-3 font-semibold text-gray-700">
-    <a href="catalog.html" class="block py-2 hover:text-brand-red transition">Каталог</a>
-    <a href="promotions.html" class="block py-2 hover:text-brand-red transition">Акції</a>
-    <a href="about.html" class="block py-2 text-brand-red transition">Про нас</a>
-    <a href="delivery.html" class="block py-2 hover:text-brand-red transition">Доставка і оплата</a>
-    <a href="contacts.html" class="block py-2 hover:text-brand-red transition">Контакти</a>
-    <a href="cart.html" class="block py-2 hover:text-brand-red transition">Кошик</a>
+    <a href="html/catalog.html" class="block py-2 hover:text-brand-red transition">Каталог</a>
+    <a href="html/promotions.html" class="block py-2 hover:text-brand-red transition">Акції</a>
+    <a href="html/about.html" class="block py-2 text-brand-red transition">Про нас</a>
+    <a href="html/delivery.html" class="block py-2 hover:text-brand-red transition">Доставка і оплата</a>
+    <a href="html/contacts.html" class="block py-2 hover:text-brand-red transition">Контакти</a>
+    <a href="html/cart.html" class="block py-2 hover:text-brand-red transition">Кошик</a>
   </div>
 </nav>
 
@@ -92,9 +92,9 @@
 <!-- FOOTER -->
 <footer class="bg-white text-center py-6 border-t mt-10">
   <div class="flex flex-col sm:flex-row justify-center sm:space-x-6 mb-4 text-gray-700 font-medium">
-    <a href="about.html" class="text-brand-red">Про нас</a>
-    <a href="delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
-    <a href="contacts.html" class="hover:text-brand-red">Контакти</a>
+    <a href="html/about.html" class="text-brand-red">Про нас</a>
+    <a href="html/delivery.html" class="hover:text-brand-red">Доставка і оплата</a>
+    <a href="html/contacts.html" class="hover:text-brand-red">Контакти</a>
   </div>
   <p class="text-gray-500 text-sm">&copy; 2025 AsiaBox. Усі права захищені.</p>
 </footer>
